@@ -1,5 +1,4 @@
 "use client";
-
 import { Todo } from "@/lib/todos";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -33,12 +32,12 @@ export default function TodoList({ initialTodos }: TodoListProps) {
 
   return (
     <div className="w-full max-w-2xl mx-auto space-y-4">
-      {initialTodos.map((todo) => (
+      {initialTodos.map((todo, index) => (
         <Card key={todo.id}>
           <CardContent className="flex items-center justify-between p-4">
             <div className="space-y-1">
               <h3 className="font-semibold">
-                #{todo.id} {todo.title}
+                #{index+1} {todo.title}
               </h3>
 
               <Badge variant={todo.completed ? "default" : "secondary"}>
