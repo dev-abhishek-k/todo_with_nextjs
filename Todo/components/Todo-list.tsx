@@ -49,7 +49,7 @@ export default function TodoList({ initialTodos }: TodoListProps) {
               <Button variant="outline" onClick={() => handleToggle(todo.id)}>
                 {todo.completed ? "Undo" : "Complete"}
               </Button>
-
+              <Button variant="outline" onClick={() => router.push(`/api/todos/${todo.id}/edit`)}>Edit</Button>   
               <Button
                 variant="destructive"
                 onClick={() => handleDelete(todo.id)}

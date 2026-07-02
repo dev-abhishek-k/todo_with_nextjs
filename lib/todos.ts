@@ -3,6 +3,7 @@ export type Todo = {
   title: string;
   completed: boolean;
   createdAt: Date;
+  updatedAt: Date;
 };
 
 export function getBaseUrl() {
@@ -58,5 +59,19 @@ export async function toggleComplete(id: number) {
   
   if (!res.ok) {
     throw new Error("Failed to toggle todo");
+  }  
+}
+
+export async function updateTodo(id: number, title: string) {
+  const res = await fetch(`${getBaseUrl()}/api/todos/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title }),
+  });  
+  
+  if (!res.ok) {
+    throw new Error("Failed to update todo");
   }  
 }
